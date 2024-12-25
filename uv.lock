@@ -1531,10 +1531,10 @@ build = [
     { name = "setuptools" },
     { name = "torch" },
 ]
-chumpy-compile = [
+chumpy = [
     { name = "chumpy" },
 ]
-libcom-compile = [
+libcom = [
     { name = "libcom" },
 ]
 
@@ -1547,9 +1547,9 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "chumpy", marker = "extra == 'chumpy-compile'" },
+    { name = "chumpy", marker = "extra == 'chumpy'" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.115.6" },
-    { name = "libcom", marker = "extra == 'libcom-compile'", git = "https://github.com/bcmi/libcom" },
+    { name = "libcom", marker = "extra == 'libcom'", git = "https://github.com/bcmi/libcom" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "pip", marker = "extra == 'build'" },
     { name = "setuptools", marker = "extra == 'build'" },

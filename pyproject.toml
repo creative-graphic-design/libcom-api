@@ -18,8 +18,8 @@ libcom = { git = "https://github.com/bcmi/libcom" }
 
 [project.optional-dependencies]
 build = ["pip", "setuptools", "torch"]
-chumpy-compile = ["chumpy"]
-libcom-compile = ["libcom"]
+chumpy = ["chumpy"]
+libcom = ["libcom"]
 
 [tool.uv]
 no-build-isolation-package = ["chumpy", "libcom"]
