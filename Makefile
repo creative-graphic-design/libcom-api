@@ -58,6 +58,13 @@ docker-run: docker-build
 		--name $(IMAGE_NAME)-dev \
 		$(IMAGE_NAME) /bin/bash
 
+#
+# FastAPI
+#
+.PHONY: run
+run:
+	uv run fastapi dev src/libcom_api/__init__.py
+
 .PHONY: clean
 clean:
 	rm -rf .venv
