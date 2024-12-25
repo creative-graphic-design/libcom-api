@@ -1,5 +1,4 @@
 from fastapi import FastAPI, Response
-from loguru import logger
 
 from libcom_api.routers import gather_routers
 

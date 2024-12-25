@@ -9,21 +9,24 @@ setup:
 uv-pin-$(PYTHON_VERSION):
 	uv python pin $(PYTHON_VERSION)
 
+.PHONY: lock
+lock:
+	uv lock
+
 .PHONY: build
 build:
 	uv sync --extra build
 
-.PHONY: chumpy-install
-chumpy-install: build
-	uv sync --extra chumpy-compile
+.PHONY: chumpy
+chumpy: build
+	uv sync --extra chumpy
 
-.PHONY: libcom-install
-libcom-install: build
-
-	uv sync --extra libcom-compile
+.PHONY: libcom
+libcom: build
+	uv sync --extra libcom
 
 .PHONY: install
-install: uv-pin-$(PYTHON_VERSION) chumpy-install libcom-install
+install: uv-pin-$(PYTHON_VERSION) lock chumpy libcom
 
 #
 # linter/formatter/typecheck

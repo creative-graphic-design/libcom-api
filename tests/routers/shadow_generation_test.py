@@ -1,6 +1,7 @@
 from typing import get_args
 
 import pytest
+import torch
 from fastapi.testclient import TestClient
 
 from libcom_api.routers.shadow_generation import ModelType
@@ -8,6 +9,9 @@ from libcom_api.testing import LibcomApiTestCase
 
 
 class TestShadowGeneartion(LibcomApiTestCase):
+    @pytest.mark.skipif(
+        not torch.cuda.is_available(), reason="No GPUs available for testing"
+    )
     @pytest.mark.parametrize(
         argnames="image_url, mask_image_url",
         argvalues=(
